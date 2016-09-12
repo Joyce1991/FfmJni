@@ -1,21 +1,37 @@
-LOCAL_PATH := $(call my-dir)
+LOCAL_PATH := $(call my-dir)  
+  
+# FFmpeg library  
 include $(CLEAR_VARS)
- 
+LOCAL_MODULE := avcodec
+LOCAL_SRC_FILES := libavcodec-57.so
+include $(PREBUILT_SHARED_LIBRARY)  
+  
+include $(CLEAR_VARS)
+LOCAL_MODULE := avformat
+LOCAL_SRC_FILES := libavformat-57.so
+include $(PREBUILT_SHARED_LIBRARY)  
+  
+include $(CLEAR_VARS)
+LOCAL_MODULE := avutil
+LOCAL_SRC_FILES := libavutil-55.so
+include $(PREBUILT_SHARED_LIBRARY)  
+  
+  
+include $(CLEAR_VARS)
+LOCAL_MODULE := swresample
+LOCAL_SRC_FILES := libswresample-2.so
+include $(PREBUILT_SHARED_LIBRARY)  
+  
+include $(CLEAR_VARS)
+LOCAL_MODULE := swscale
+LOCAL_SRC_FILES := libswscale-4.so
+include $(PREBUILT_SHARED_LIBRARY)  
+  
+# Program  
+include $(CLEAR_VARS)
 LOCAL_MODULE := ovsplayer
-LOCAL_LDLIBS := \
- -lm \
- -ljnigraphics \
- -landroid \
- -llog \
- -lz \
- 
-LOCAL_SHARED_LIBRARIES := libavformat libavcodec libswscale libavutil
- 
-LOCAL_SRC_FILES := \
- C:/Users/jalen/StudioProjects/FfmJni/app/src/main/jni/ovsplayer.c \
- 
-LOCAL_C_INCLUDES += C:/Users/jalen/StudioProjects/FfmJni/app/src/main/jni
-LOCAL_C_INCLUDES += C:/Users/jalen/StudioProjects/FfmJni/app/src/debug/jni
- 
-include $(BUILD_SHARED_LIBRARY)
-$(call import-module,ffmpeg/android/arm)
+LOCAL_SRC_FILES := ovsplayer.c
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/include
+LOCAL_LDLIBS := -llog -lz
+LOCAL_SHARED_LIBRARIES := avcodec avfilter avformat avutil swresample swscale
+include $(BUILD_SHARED_LIBRARY) 

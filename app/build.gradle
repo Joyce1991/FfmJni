@@ -27,7 +27,9 @@ android {
     // 禁用自动执行ndk-build
     sourceSets.main.jni.srcDirs = []
 
-
+    sourceSets.main {
+        jniLibs.srcDirs = ['libs']
+    }
 }
 
 dependencies {

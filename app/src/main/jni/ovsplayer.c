@@ -14,7 +14,8 @@
 JNIEXPORT jstring JNICALL Java_com_test_ffmjni_MainActivity_getStringFromNative
  (JNIEnv * env , jobject obj)
  {
-  const char *url = "/mnt/sdcard/1.mp4";
+  const char *url = "/storage/emulated/0/1.mp4";
+  /*
   av_register_all();
 
   AVFormatContext *pFormatCtx = NULL;
@@ -23,10 +24,16 @@ JNIEXPORT jstring JNICALL Java_com_test_ffmjni_MainActivity_getStringFromNative
   ret = avformat_find_stream_info(pFormatCtx, NULL);
   int streamNum = pFormatCtx->nb_streams;
 
+
   char wd[512];
+
   sprintf(wd, "AVCODEC VERSION %u\n, streamNum[%d]"
     , avcodec_version()
     , streamNum
     );
-  return (*env)->NewStringUTF(env, wd);
+  return (*env)->NewStringUTF(env, url);
+  */
+    char info[10000] = { 0 };
+    sprintf(info, "%s\n", avcodec_configuration());
+     return (*env)->NewStringUTF(env, info);
  }
