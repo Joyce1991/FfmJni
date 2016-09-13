@@ -2,6 +2,7 @@ package com.test.ffmjni;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Process;
 import android.widget.TextView;
 
 
@@ -14,6 +15,8 @@ public class MainActivity extends Activity {
 
         TextView textView = (TextView) this.findViewById(R.id.text);
         textView.setText(getStringFromNative());
+
+
     }
     static{
         System.loadLibrary("swresample-2");

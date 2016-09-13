@@ -15,7 +15,7 @@ JNIEXPORT jstring JNICALL Java_com_test_ffmjni_MainActivity_getStringFromNative
  (JNIEnv * env , jobject obj)
  {
   const char *url = "/storage/emulated/0/1.mp4";
-  /*
+/*
   av_register_all();
 
   AVFormatContext *pFormatCtx = NULL;
