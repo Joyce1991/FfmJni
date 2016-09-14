@@ -5,6 +5,16 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := avcodec
 LOCAL_SRC_FILES := libavcodec-57.so
 include $(PREBUILT_SHARED_LIBRARY)  
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := avdevice
+LOCAL_SRC_FILES := libavdevice-57.so
+include $(PREBUILT_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := avfilter
+LOCAL_SRC_FILES := libavfilter-6.so
+include $(PREBUILT_SHARED_LIBRARY)  
   
 include $(CLEAR_VARS)
 LOCAL_MODULE := avformat

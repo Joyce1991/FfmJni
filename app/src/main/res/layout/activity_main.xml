@@ -9,9 +9,54 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.test.ffmjni.MainActivity">
 
-    <TextView
-        android:id="@+id/text"
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="avcodec_configuration"
+        android:id="@+id/avcodec_configuration"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="avformatinfo"
+        android:id="@+id/avformatinfo"
+        android:layout_below="@+id/avcodec_configuration"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_below="@id/avformatinfo"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Hello World!"
+        android:minLines="20"
+        android:scrollbars="vertical"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="avcodecinfo"
+        android:id="@+id/avcodecinfo"
+        android:layout_alignTop="@+id/avcodec_configuration"
+        android:layout_alignRight="@+id/text"
+        android:layout_alignEnd="@+id/text" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="avfilterinfo"
+        android:id="@+id/avfilterinfo"
+        android:layout_alignTop="@+id/avformatinfo"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

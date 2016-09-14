@@ -34,7 +34,9 @@ C:/Users/jalen/StudioProjects/FfmJni/app/src/main/obj/local/armeabi/objs/ovsplay
  C:/Users/jalen/StudioProjects/FfmJni/app/src/main/jni/include/libavformat/avformat.h \
  C:/Users/jalen/StudioProjects/FfmJni/app/src/main/jni/include/libavformat/avio.h \
  C:/Users/jalen/StudioProjects/FfmJni/app/src/main/jni/include/libavutil/common.h \
- C:/Users/jalen/StudioProjects/FfmJni/app/src/main/jni/include/libavformat/version.h
+ C:/Users/jalen/StudioProjects/FfmJni/app/src/main/jni/include/libavformat/version.h \
+ C:/Users/jalen/StudioProjects/FfmJni/app/src/main/jni/include/libavfilter/avfilter.h \
+ C:/Users/jalen/StudioProjects/FfmJni/app/src/main/jni/include/libavfilter/version.h
 
 C:/Users/jalen/StudioProjects/FfmJni/app/src/main/jni/com_test_ffmjni_MainActivity.h:
 
@@ -105,3 +107,7 @@ C:/Users/jalen/StudioProjects/FfmJni/app/src/main/jni/include/libavformat/avio.h
 C:/Users/jalen/StudioProjects/FfmJni/app/src/main/jni/include/libavutil/common.h:
 
 C:/Users/jalen/StudioProjects/FfmJni/app/src/main/jni/include/libavformat/version.h:
+
+C:/Users/jalen/StudioProjects/FfmJni/app/src/main/jni/include/libavfilter/avfilter.h:
+
+C:/Users/jalen/StudioProjects/FfmJni/app/src/main/jni/include/libavfilter/version.h:
