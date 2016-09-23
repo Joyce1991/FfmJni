@@ -6,20 +6,26 @@ import android.os.Process;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 
 public class MainActivity extends Activity implements View.OnClickListener {
+/*
     private TextView textView;
     private Button avcodec_configuration;
     private Button avformatinfo;
     private Button avcodecinfo;
     private Button avfilterinfo;
+*/
+    private EditText cmdEditText;
+    private Button startButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+/*
         textView = (TextView) this.findViewById(R.id.text);
         textView.setMovementMethod(ScrollingMovementMethod.getInstance());
 
@@ -32,6 +38,12 @@ public class MainActivity extends Activity implements View.OnClickListener {
         avformatinfo.setOnClickListener(this);
         avcodecinfo.setOnClickListener(this);
         avfilterinfo.setOnClickListener(this);
+*/
+
+        cmdEditText = (EditText) this.findViewById(R.id.et_cmd);
+        startButton = (Button) this.findViewById(R.id.btn_start);
+
+        startButton.setOnClickListener(this);
     }
     static{
         System.loadLibrary("swresample-2");
@@ -46,11 +58,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public native String avformatinfo();
     public native String avcodecinfo();
     public native String avfilterinfo();
+    public native int ffmpegcore(int argc,String[] argv);
 
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+/*
             case R.id.avcodec_configuration:
                 textView.setText(getStringFromNative());
                 break;
@@ -65,6 +79,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             case R.id.avfilterinfo:
                 textView.setText(avfilterinfo());
+                break;
+*/
+            case R.id.btn_start:
+                String cmdline=cmdEditText.getText().toString();
+                String[] argv=cmdline.split(" ");
+                Integer argc=argv.length;
+                ffmpegcore(argc, argv);
                 break;
         }
     }

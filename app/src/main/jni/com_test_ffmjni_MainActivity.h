@@ -17,8 +17,6 @@ extern "C" {
 #define com_test_ffmjni_MainActivity_BIND_AUTO_CREATE 1L
 #undef com_test_ffmjni_MainActivity_BIND_DEBUG_UNBIND
 #define com_test_ffmjni_MainActivity_BIND_DEBUG_UNBIND 2L
-#undef com_test_ffmjni_MainActivity_BIND_EXTERNAL_SERVICE
-#define com_test_ffmjni_MainActivity_BIND_EXTERNAL_SERVICE -2147483648L
 #undef com_test_ffmjni_MainActivity_BIND_IMPORTANT
 #define com_test_ffmjni_MainActivity_BIND_IMPORTANT 64L
 #undef com_test_ffmjni_MainActivity_BIND_NOT_FOREGROUND
@@ -37,8 +35,6 @@ extern "C" {
 #define com_test_ffmjni_MainActivity_MODE_ENABLE_WRITE_AHEAD_LOGGING 8L
 #undef com_test_ffmjni_MainActivity_MODE_MULTI_PROCESS
 #define com_test_ffmjni_MainActivity_MODE_MULTI_PROCESS 4L
-#undef com_test_ffmjni_MainActivity_MODE_NO_LOCALIZED_COLLATORS
-#define com_test_ffmjni_MainActivity_MODE_NO_LOCALIZED_COLLATORS 16L
 #undef com_test_ffmjni_MainActivity_MODE_PRIVATE
 #define com_test_ffmjni_MainActivity_MODE_PRIVATE 0L
 #undef com_test_ffmjni_MainActivity_MODE_WORLD_READABLE
@@ -61,6 +57,46 @@ extern "C" {
 #define com_test_ffmjni_MainActivity_RESULT_FIRST_USER 1L
 #undef com_test_ffmjni_MainActivity_RESULT_OK
 #define com_test_ffmjni_MainActivity_RESULT_OK -1L
+/*
+ * Class:     com_test_ffmjni_MainActivity
+ * Method:    getStringFromNative
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_test_ffmjni_MainActivity_getStringFromNative
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     com_test_ffmjni_MainActivity
+ * Method:    avformatinfo
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_test_ffmjni_MainActivity_avformatinfo
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     com_test_ffmjni_MainActivity
+ * Method:    avcodecinfo
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_test_ffmjni_MainActivity_avcodecinfo
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     com_test_ffmjni_MainActivity
+ * Method:    avfilterinfo
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_com_test_ffmjni_MainActivity_avfilterinfo
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     com_test_ffmjni_MainActivity
+ * Method:    ffmpegcore
+ * Signature: (I[Ljava/lang/String;)I
+ */
+JNIEXPORT jint JNICALL Java_com_test_ffmjni_MainActivity_ffmpegcore
+  (JNIEnv *, jobject, jint, jobjectArray);
+
 #ifdef __cplusplus
 }
 #endif

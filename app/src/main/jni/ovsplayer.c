@@ -11,6 +11,7 @@
 #include "libavcodec/avcodec.h"
 #include "libavformat/avformat.h"
 #include "libavfilter/avfilter.h"
+#include <ffmpeg.h>
 
 static const char *kTAG = "jni";
 
@@ -105,3 +106,42 @@ JNIEXPORT jstring JNICALL Java_com_test_ffmjni_MainActivity_getStringFromNative
     sprintf(info, "%s\n", avcodec_configuration());
      return (*env)->NewStringUTF(env, info);
  }
+
+ int ffmpegmain(int argc, char **argv);
+  //Output FFmpeg's av_log()
+  void custom_log(void *ptr, int level, const char* fmt, va_list vl){
+      //To TXT file
+      FILE *fp=fopen("/storage/emulated/0/av_log.txt","a+");
+      if(fp){
+          vfprintf(fp,fmt,vl);
+          fflush(fp);
+          fclose(fp);
+      }
+      //To Logcat
+      //LOGE(fmt, vl);
+  }
+ JNIEXPORT jint JNICALL Java_com_test_ffmjni_MainActivity_ffmpegcore
+ ( JNIEnv * env, jobject thiz, jint cmdnum, jobjectArray cmdline){
+          //FFmpeg av_log() callback
+          av_log_set_callback(custom_log);
+
+          int argc=cmdnum;
+          char** argv=(char**)malloc(sizeof(char*)*argc);
+
+          int i=0;
+          for(i=0;i<argc;i++)
+          {
+            jstring string=(*env)->GetObjectArrayElement(env,cmdline,i);
+            const char* tmp=(*env)->GetStringUTFChars(env,string,0);
+            argv[i]=(char*)malloc(sizeof(char)*1024);
+            strcpy(argv[i],tmp);
+          }
+
+          ffmpegmain(argc,argv);
+
+          for(i=0;i<argc;i++){
+            free(argv[i]);
+          }
+          free(argv);
+          return 0;
+   }

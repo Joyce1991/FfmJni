@@ -40,8 +40,8 @@ include $(PREBUILT_SHARED_LIBRARY)
 # Program  
 include $(CLEAR_VARS)
 LOCAL_MODULE := ovsplayer
-LOCAL_SRC_FILES := ovsplayer.c
+LOCAL_SRC_FILES := ovsplayer.c ffmpeg.c ffmpeg_opt.c ffmpeg_filter.c cmdutils.c
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/include
 LOCAL_LDLIBS := -llog -lz
-LOCAL_SHARED_LIBRARIES := avcodec avfilter avformat avutil swresample swscale
+LOCAL_SHARED_LIBRARIES := avcodec avdevice avfilter avformat avutil swresample swscale
 include $(BUILD_SHARED_LIBRARY) 
